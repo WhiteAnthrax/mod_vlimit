@@ -113,7 +113,7 @@ static int VLIMIT_DEBUG_SYSLOG(const char *key, const char *msg, apr_pool_t *p)
     vlimit_buf = (char *)apr_psprintf(p, MODULE_NAME ": %s%s", key, msg);
 
     openlog(NULL, LOG_PID, LOG_SYSLOG);
-    syslog(LOG_DEBUG, vlimit_buf);
+    syslog(LOG_DEBUG, "%s", vlimit_buf);
     closelog();
 
     return 0;
