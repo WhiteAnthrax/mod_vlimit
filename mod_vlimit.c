@@ -19,6 +19,7 @@
 // -------------------------------------------------------------------
 */
 
+#include "httpd.h"
 #include "ap_mpm.h"
 #include "apr_shm.h"
 #include "apr_strings.h"
@@ -28,7 +29,6 @@
 #include "http_main.h"
 #include "http_protocol.h"
 #include "http_request.h"
-#include "httpd.h"
 #include <libgen.h>
 #include <limits.h>
 #include <unistd.h>
@@ -113,7 +113,7 @@ static int VLIMIT_DEBUG_SYSLOG(const char *key, const char *msg, apr_pool_t *p)
     vlimit_buf = (char *)apr_psprintf(p, MODULE_NAME ": %s%s", key, msg);
 
     openlog(NULL, LOG_PID, LOG_SYSLOG);
-    syslog(LOG_DEBUG, vlimit_buf);
+    syslog(LOG_DEBUG, "%s", vlimit_buf);
     closelog();
 
     return 0;
