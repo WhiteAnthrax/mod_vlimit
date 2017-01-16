@@ -19,6 +19,7 @@
 // -------------------------------------------------------------------
 */
 
+#include "httpd.h"
 #include "ap_mpm.h"
 #include "apr_shm.h"
 #include "apr_strings.h"
@@ -28,7 +29,6 @@
 #include "http_main.h"
 #include "http_protocol.h"
 #include "http_request.h"
-#include "httpd.h"
 #include <libgen.h>
 #include <limits.h>
 #include <unistd.h>
